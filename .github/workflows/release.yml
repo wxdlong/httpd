@@ -1,0 +1,22 @@
+name: Build Httpd
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      run: |
+        echo Hello Action!
+        docker build . -t httpd
+        mkdir -p release
+        docker run --rm --privileged -v ${PWD}/release:/root/rpmbuild httpd
+        ls -lth /root/rpmbuild/RPMS/x86_64
+   

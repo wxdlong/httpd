@@ -25,4 +25,3 @@ rpm -ivh ${RPM_HOME}/apr-*
 rpm -ivh ${RPM_HOME}/apr-util-*
 rpmbuild -tb httpd-${HTTP_VERSION}.tar.bz2 > ${APACHE_SRC}/httpd.log | tee http.log
 ls -lth ${RPM_HOME}
-tail -f /dev/null
