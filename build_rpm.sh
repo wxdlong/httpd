@@ -20,8 +20,8 @@ if [ $? -ne 0 ]; then
 fi
 
 rpmbuild -tb apr-${APR_VERSION}.tar.bz2 | tee arp.log
-rpmbuild -tb apr-util-${APR_UTIL_VERSION}.tar.bz2 | tee arp-util.log
 rpm -ivh ${RPM_HOME}/apr-*
+rpmbuild -tb apr-util-${APR_UTIL_VERSION}.tar.bz2 | tee arp-util.log
 rpm -ivh ${RPM_HOME}/apr-util-*
 rpmbuild -tb httpd-${HTTP_VERSION}.tar.bz2 > ${APACHE_SRC}/httpd.log | tee http.log
 ls -lth ${RPM_HOME}
